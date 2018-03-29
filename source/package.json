@@ -1,0 +1,9 @@
+{
+  "name": "pocok-complex-example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}

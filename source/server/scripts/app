@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "node version is '$(node -v)'"
+echo "npm version is '$(npm -v)'"
+
+npm i
+
+node server/server.js

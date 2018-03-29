@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  node:
+    user: "1000"
+    image: node
+    links:
+      - mysql
+    volumes:
+      - ../source:/usr/local/app/frontend
+    ports:
+      - "${NODE_PORT}:3000"
+    working_dir: "/usr/local/app/frontend"
+    command: sh -c "./server/scripts/app"

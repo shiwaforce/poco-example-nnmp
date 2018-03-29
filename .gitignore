@@ -1,0 +1,4 @@
+.DS_Store
+.idea
+docker/db_data
+source/node_modules

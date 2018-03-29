@@ -1,0 +1,17 @@
+version: '1.0'
+maintainer: 'operations@shiwaforce.com'
+
+environment:
+  include: docker/conf.env
+
+plan:
+  demo:
+    - docker/dc-nginx.yaml
+    - docker/dc-mysql-demo.yaml
+    - docker/dc-node.yaml
+    - docker/dc-phpmyadmin.yaml
+  dev:
+    - docker/dc-nginx.yaml
+    - docker/dc-mysql-dev.yaml
+    - docker/dc-node.yaml
+    - docker/dc-phpmyadmin.yaml
