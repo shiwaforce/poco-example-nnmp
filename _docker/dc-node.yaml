@@ -3,7 +3,6 @@ version: '3'
 services:
   node:
     image: node
-    container_name: poco_node
     user: "1000"
     links:
       - mysql
