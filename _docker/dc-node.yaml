@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  node:
+    image: node
+    container_name: poco_node
+    user: "1000"
+    links:
+      - mysql
+    volumes:
+      - ../backend:/usr/local/app/backend
+    ports:
+      - "${NODE_PORT}:3000"
+    working_dir: "/usr/local/app/backend"
+    command: sh -c "./scripts/app"

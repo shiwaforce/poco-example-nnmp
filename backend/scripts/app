@@ -4,4 +4,4 @@ echo "npm version is '$(npm -v)'"
 
 npm i
 
-node server/server.js
+node server.js
