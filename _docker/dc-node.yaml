@@ -1,9 +1,11 @@
-version: '3'
+version: '3.7'
 
 services:
   node:
-    image: node
+    image: node:10.9.0
     user: "1000"
+    depends_on:
+      - mysql
     links:
       - mysql
     volumes:
@@ -11,4 +13,4 @@ services:
     ports:
       - "${NODE_PORT}:3000"
     working_dir: "/usr/local/app/backend"
-    command: sh -c "./scripts/app"
+    command: sh -c "./_scripts/app"

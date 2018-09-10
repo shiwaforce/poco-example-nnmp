@@ -1,8 +1,22 @@
 doctype
 html
-  head
-  body
-    h1 Hello World!
-    ul
-      each val in data
-        li= val.first_name
+	head
+		title Poco Nginx, Node, Mysql, PhpMyAdmin Example
+	body
+		header.header
+			.header-logo
+				img(src="/assets/images/logo.svg")
+			h1.header-title Poco Nginx, Node, Mysql, PhpMyAdmin Example
+
+			nav.nav
+				ul.nav-list
+					li.nav-list-item
+						a(href="https://github.com/shiwaforce/poco" target="_blank" rel="noopener") Github
+					li.nav-list-item
+						a(href="https://proco.app/documentation/" target="_blank" rel="noopener") Documentation
+					li.nav-list-item
+						a(href="https://proco.app/tutorials/" target="_blank" rel="noopener") Tutorials
+		main.main
+			div#app
+
+		script(src="/assets/js/app.js")

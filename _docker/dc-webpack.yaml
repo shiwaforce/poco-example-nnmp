@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  webpack:
+    image: node:10.9.0
+    user: "node"
+    volumes:
+      - ../frontend:/usr/local/app/frontend
+      - ../backend/public:/usr/local/app/backend/public
+    working_dir: "/usr/local/app/frontend"
+    command: sh "./_scripts/run"

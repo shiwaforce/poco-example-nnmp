@@ -9,9 +9,5 @@ plan:
     - _docker/dc-nginx.yaml
     - _docker/dc-mysql.yaml
     - _docker/dc-node.yaml
-    - _docker/dc-phpmyadmin.yaml
-  dev:
-    - _docker/dc-nginx.yaml
-    - _docker/dc-mysql-dev.yaml
-    - _docker/dc-node.yaml
+    - _docker/dc-webpack.yaml
     - _docker/dc-phpmyadmin.yaml

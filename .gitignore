@@ -2,3 +2,5 @@
 .idea
 _docker/db_data
 backend/node_modules
+backend/public
+frontend/node_modules
