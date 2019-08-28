@@ -2,23 +2,11 @@
 	"presets": [
 		[
 			"@babel/preset-env",
-			{
-				"modules": false
-			}
+			{ "modules": false }
 		]
 	],
 	"plugins": [
-		"@babel/plugin-transform-runtime"
-	],
-	"env": {
-		"test": {
-			"presets": [
-				"@babel/preset-env",
-				"stage-2"
-			],
-			"plugins": [
-				"istanbul"
-			]
-		}
-	}
+		"@babel/plugin-transform-runtime",
+		"@babel/plugin-syntax-dynamic-import"
+	]
 }

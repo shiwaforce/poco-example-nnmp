@@ -1,15 +1,9 @@
 module.exports = {
 	root: true,
 	parser: 'babel-eslint',
-	parserOptions: {
-		sourceType: 'module'
-	},
-	env: {
-		browser: true
-	},
 	extends: 'eslint-config-client-shiwaforce',
 	plugins: [
-		'html'
+		'vue'
 	],
 	rules: {
 		"semi": [1, "always"],

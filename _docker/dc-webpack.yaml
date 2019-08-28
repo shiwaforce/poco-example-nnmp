@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
   webpack:
-    image: node:10.9.0
-    user: "node"
+    image: node:12.8.1
+    user: "1000"
     volumes:
       - ../frontend:/usr/local/app/frontend
       - ../backend/public:/usr/local/app/backend/public

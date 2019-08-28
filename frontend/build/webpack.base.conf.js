@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-const {VueLoaderPlugin} = require('vue-loader');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const env = process.env.NODE_ENV;
 const isProduction = env === 'production';
@@ -17,20 +17,24 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
 		modules: [path.resolve(__dirname, '../source'), 'node_modules'],
-		alias: {
-			'vue$': 'vue/dist/vue.esm.js'
-		}
 	},
 	module: {
 		rules: [
+			/* Temporary disabled */
+			// {
+			// 	test: /\.(js|vue)$/,
+			// 	loader: 'eslint-loader',
+			// 	enforce: 'pre',
+			// 	include: [resolve('source')],
+			// 	options: {
+			// 		formatter: require('eslint-friendly-formatter')
+			// 	}
+			// },
 			{
-				test: /\.(js|vue)$/,
-				loader: 'eslint-loader',
-				enforce: 'pre',
+				test: /\.js$/,
 				include: [resolve('source')],
-				options: {
-					formatter: require('eslint-friendly-formatter')
-				}
+				loader: 'babel-loader',
+				exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file)
 			},
 			{
 				test: /\.vue$/,
@@ -38,42 +42,23 @@ module.exports = {
 				loader: 'vue-loader'
 			},
 			{
-				test: /\.js$/,
-				include: [resolve('source')],
-				loader: 'babel-loader'
-			},
-			{
 				test: /\.pug$/,
 				loader: 'pug-plain-loader'
 			},
 			{
 				test: /\.p(ost)?css$/,
-				oneOf: [{
-					resourceQuery: /module/,
-					use: [
-						!isProduction ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-						{
-							loader: 'css-loader',
-							options: {
-								modules: true,
+				use: [
+					!isProduction ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							modules: {
 								localIdentName: isProduction ? '[hash:base64:5]' : '[name]__[local]___[hash:base64:5]'
 							}
-						},
-						{loader: 'postcss-loader', options: {sourceMap: true}}
-					]
-				}, {
-					use: [
-						!isProduction ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-						{
-							loader: 'css-loader',
-							options: {
-								modules: true,
-								localIdentName: isProduction ? '[hash:base64:5]' : '[name]__[local]___[hash:base64:5]'
-							}
-						},
-						{loader: 'postcss-loader', options: {sourceMap: true}}
-					]
-				}]
+						}
+					},
+					{loader: 'postcss-loader', options: {sourceMap: true}}
+				]
 			},
 			{
 				test: /\.css$/,
