@@ -2,8 +2,8 @@
 
 This is example of [poco](https://github.com/shiwaforce/poco) application.
 
-[Documentation](https://proco.app/documentation/)
-[Install](https://proco.app/documentation/install/)
+[Documentation](https://getpoco.io/documentation/)
+[Install](https://getpoco.io/documentation/install/)
 
 To run this project just clone or download this project and run:
 ```$sh
